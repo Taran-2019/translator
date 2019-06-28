@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-declare var require: any;
-const translate = require('../../../node_modules/google-translate-api');
+import { TranslateService } from '../translate.service';
+import { stringify } from '@angular/compiler/src/util';
+
 
 @Component({
   selector: 'app-home',
@@ -9,15 +10,11 @@ const translate = require('../../../node_modules/google-translate-api');
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceObj:TranslateService) { }
  
   ngOnInit() {
-    console.dir(translate);
-    translate('hello', {to:'es'}).then(res => {
-      console.log(res);
-    }).catch(err => {
-      console.error(err);
-    });
+   
+    this.serviceObj.fetchTranslation(lang,translang,text).subscribe();
   }
 
 }
