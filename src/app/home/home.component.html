@@ -1,3 +1,37 @@
 <div>
-    
+        
+                <input type="text" [(ngModel)]="text" name="Input" placeholder="Text to translate" (ngModelChange)="getTranslatedText()">
+                
+        
+        
+                <div>
+                            
+                        <button (click)="toggle()">Select language</button>
+                 
+                          <select *ngIf="toggleme" [(ngModel)]="selectedLanguage" (ngModelChange)="selectedLanguageChange()">
+                                <option *ngFor="let item of xyz" [value]="item">{{item}}</option>
+                          </select>
+                </div>
+
+<br><br><hr>
+
+        
+                <div>
+
+                        <button [disabled]="disableselect" (click)="toggletwo()">Select Translation Language</button> 
+
+                         <select *ngIf="toggleyou" [(ngModel)]="translang" (ngModelChange)="translatedLanguage()">
+                                 <option *ngFor="let item of secondDropdown" [value]="item">{{item}}</option>
+                         </select>
+                        
+
+                </div>
+
+                <div class="output">
+                        <p>{{abc}}</p>
+                </div>
+                
 </div>
+
+
+
